@@ -1,4 +1,3 @@
-
 FROM ubuntu:20.04
 
 ENV TZ=Europe/Paris
@@ -15,6 +14,10 @@ RUN apt-get update && apt-get install -y \
   valgrind \
   gcov \
   strace \
+  manpages \
+  manpages-posix \
+  manpages-dev \
+  manpages-posix-dev \
 && rm -rf /var/lib/apt/lists/*
 
 # penser à update
