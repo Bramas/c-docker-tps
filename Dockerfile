@@ -12,16 +12,12 @@ RUN apt-get update && apt-get install -y \
   libsdl2-dev \
   libsdl2-ttf-dev \
   valgrind \
-  gcov \
   strace \
   manpages \
   manpages-posix \
   manpages-dev \
   manpages-posix-dev \
 && rm -rf /var/lib/apt/lists/*
-
-# penser à update
-# ajouter pthread strace
 
 
 RUN curl https://gitlab.com/bramas/libtps.h/raw/master/install.sh | bash -
