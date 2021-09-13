@@ -9,9 +9,11 @@ RUN apt-get update && apt-get install -y \
   git \
   wget \
   curl \
+  python \
   libsdl2-dev \
   libsdl2-ttf-dev \
   valgrind \
+  lcov \
   strace \
   manpages \
   manpages-posix \
@@ -19,6 +21,7 @@ RUN apt-get update && apt-get install -y \
   manpages-posix-dev \
 && rm -rf /var/lib/apt/lists/*
 
+RUN locale-gen "fr_FR.UTF-8" && dpkg-reconfigure locales
 
 RUN curl https://gitlab.com/bramas/libtps.h/raw/master/install.sh | bash -
 ENV LD_LIBRARY_PATH /usr/local/lib
