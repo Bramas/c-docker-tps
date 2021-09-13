@@ -3,8 +3,6 @@ FROM ubuntu:20.04
 ENV TZ=Europe/Paris
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN unminimize
-
 RUN apt-get update && apt-get install -y \
   locales \
   gcc \
@@ -27,6 +25,8 @@ RUN apt-get update && apt-get install -y \
 && rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen "fr_FR.UTF-8" && dpkg-reconfigure locales
+
+RUN unminimize
 
 RUN curl https://gitlab.com/bramas/libtps.h/raw/master/install.sh | bash -
 ENV LD_LIBRARY_PATH /usr/local/lib
