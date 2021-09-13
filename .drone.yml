@@ -1,0 +1,26 @@
+kind: pipeline
+name: default
+
+workspace:
+  path: docker-tps
+
+clone:
+  depth: 1
+
+steps:
+
+- name: release_docker
+  image: plugins/docker
+  when:
+    branch:
+    - master
+  settings:
+    dockerfile: ./Dockerfile
+    repo: bramas/tps-c
+    username:
+      from_secret: DOCKER_USERNAME
+    password:
+      from_secret: DOCKER_PASSWORD
+    tags:
+    - latest
+    - "${DRONE_COMMIT_SHA:0:7}"
