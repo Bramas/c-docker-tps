@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN locale-gen "fr_FR.UTF-8" && dpkg-reconfigure locales
 
-RUN unminimize
+RUN yes | unminimize
 
 RUN curl https://gitlab.com/bramas/libtps.h/raw/master/install.sh | bash -
 ENV LD_LIBRARY_PATH /usr/local/lib
