@@ -24,7 +24,10 @@ RUN apt-get update && apt-get install -y \
   vim \
 && rm -rf /var/lib/apt/lists/*
 
-RUN locale-gen "fr_FR.UTF-8" && dpkg-reconfigure locales
+RUN locale-gen "fr_FR.UTF-8"
+ENV LANG fr_FR.UTF-8  
+ENV LANGUAGE fr_FR:fr  
+ENV LC_ALL fr_FR.UTF-8 
 
 RUN yes | unminimize
 
